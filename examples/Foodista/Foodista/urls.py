@@ -18,4 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^findReviews','review.views.find_all_review'),
+    url(r'^FUW','review.views.frequently_used_words')
 ]
