@@ -29,6 +29,7 @@ class SparkRDD():
 	def __init__(self, data=[], **kwargs):
 		self.func = kwargs.get("func",None)
 		self.data = data
+		self.is_cached = False
 		try:
 			self.dataRDD = sc.parallelize (data)
 		except TypeError:
@@ -46,6 +47,10 @@ class SparkRDD():
 
 	def collect(self):
 		return self.dataRDD.collect()
+
+	def cache(self):
+		self.dataRDD.cache()
+		self.is_cached = True
 
 	def count(self):
 		return self.dataRDD.count()
