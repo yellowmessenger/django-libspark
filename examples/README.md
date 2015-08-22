@@ -4,14 +4,14 @@ out the frequently used words in the database.
 
 # Dependencies
 The dependencies for building the example project are:
-1. (MongoDB)[https://www.mongodb.org]
-2. (MongoKit)[http://namlook.github.io/mongokit/]
-3. (NLTK Library)[http://www.nltk.org]
+* [MongoDB](https://www.mongodb.org)
+* [MongoKit](http://namlook.github.io/mongokit/)
+* [NLTK Library](http://www.nltk.org)
 
 # Build Instructions
 1. The first step is to setup the MongoDB Server on your local machine.
 MongoDB site provides installation instructions for all major OS.
-2. You will need to populate the MongoDB with the data we have collected. The dump of the data is provided in the root folder of the Django-LibSpark library.
+2. You will need to populate the MongoDB with the data we have collected. The dump of the data is provided in the root folder of the `Django-LibSpark` library.
 3. Run the following code to push the data dump to your instance of MongoDB:
 ```bash
 $ mongorestor --verbose path-to-dump
