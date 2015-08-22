@@ -22,9 +22,9 @@ sys.path.insert(0, os.path.join(spark_home, "python/lib/py4j-0.8.2.1-src.zip"))
 # Initialize PySpark to predefine the SparkContext variable 'sc'
 execfile(os.path.join(spark_home, "python/pyspark/shell.py"))
 
-class SparkBasic():
+class SparkRDD():
 
-	# When the SparkBasic is initialized - data and function
+	# When the SparkRDD is initialized - data and function
 	# can be passed as arguments
 	def __init__(self, data=[], **kwargs):
 		self.func = kwargs.get("func",None)
@@ -37,12 +37,12 @@ class SparkBasic():
 
 	def map(self,func):
 		mappedData = self.dataRDD.map(func)
-		tempObj = SparkBasic(data = mappedData)
+		tempObj = SparkRDD(data = mappedData)
 		return tempObj
 
 	def filter(self,func):
 		filteredData = self.dataRDD.filter(func)
-		tempObj = SparkBasic(data = filteredData)
+		tempObj = SparkRDD(data = filteredData)
 		return tempObj
 
 	def collect(self):
@@ -56,37 +56,37 @@ class SparkBasic():
 
 	def flatMap(self,func):
 		flatMapRDD = self.dataRDD.flatMap(func)
-		tempObj = SparkBasic(data=flatMapRDD)
+		tempObj = SparkRDD(data=flatMapRDD)
 		return tempObj
 
 	def flatMapValues(self,func):
 		flatMapRDD = self.dataRDD.flatMapValues(func)
-		tempObj = SparkBasic(data=flatMapRDD)
+		tempObj = SparkRDD(data=flatMapRDD)
 		return tempObj
 
 	def groupBy(self,func):
 		groupByRDD = self.dataRDD.groupBy(func)
-		tempObj = SparkBasic(data=groupByRDD)
+		tempObj = SparkRDD(data=groupByRDD)
 		return tempObj
 
 	def groupByKey(self):
 		groupByRDD = self.dataRDD.groupByKey()
-		tempObj = SparkBasic(data=groupByRDD)
+		tempObj = SparkRDD(data=groupByRDD)
 		return tempObj
 
 	def intersection(self,toBeIntersected):
-		if isinstance(toBeIntersected,SparkBasic):
+		if isinstance(toBeIntersected,SparkRDD):
 			intersected = self.dataRDD.intersection(toBeIntersected.dataRDD)
-			tempObj = SparkBasic(data=intersected)
+			tempObj = SparkRDD(data=intersected)
 		else:
 			#TODO: rasie err
 			pass
 		return tempObj
 
 	def join(self,toBeJoined):
-		if isinstance(toBeJoined,SparkBasic):
+		if isinstance(toBeJoined,SparkRDD):
 			joined = self.dataRDD.join(toBeJoined.dataRDD)
-			tempObj = SparkBasic(data=joined)
+			tempObj = SparkRDD(data=joined)
 		else:
 			#TODO: rasie err
 			pass
@@ -94,18 +94,18 @@ class SparkBasic():
 
 	def keyBy(self,func):
 		keyByRDD = self.dataRDD.keyBy(func)
-		tempObj = SparkBasic(data=keyByRDD)
+		tempObj = SparkRDD(data=keyByRDD)
 		return tempObj
 
 	def keys(self):
 		keysRDD = self.dataRDD.keys()
-		tempObj = SparkBasic(data=keysRDD)
+		tempObj = SparkRDD(data=keysRDD)
 		return tempObj
 
 	def leftOuterJoin(self,toBeJoined):
-		if isinstance(toBeJoined,SparkBasic):
+		if isinstance(toBeJoined,SparkRDD):
 			leftJoined = self.dataRDD.join(toBeJoined.dataRDD)
-			tempObj = SparkBasic(data=leftJoined)
+			tempObj = SparkRDD(data=leftJoined)
 		else:
 			#TODO: rasie err
 			pass
@@ -118,22 +118,22 @@ class SparkBasic():
 
 	def mapPartitions(self,func):
 		mapPartitionsRDD = self.dataRDD.mapPartitions(func)
-		tempObj = SparkBasic(data=mapPartitionsRDD)
+		tempObj = SparkRDD(data=mapPartitionsRDD)
 		return tempObj
 
 	def mapPartitionsWithIndex(self,func):
 		mapPartitionsWithIndexRDD = self.dataRDD.mapPartitionsWithIndex(func)
-		tempObj = SparkBasic(data=mapPartitionsWithIndexRDD)
+		tempObj = SparkRDD(data=mapPartitionsWithIndexRDD)
 		return tempObj
 
 	def mapPartitionsWithSplit(self,func):
 		mapPartitionsWithSplitRDD = self.dataRDD.mapPartitionsWithSplit(func)
-		tempObj = SparkBasic(data=mapPartitionsWithSplitRDD)
+		tempObj = SparkRDD(data=mapPartitionsWithSplitRDD)
 		return tempObj
 
 	def mapValues(self,func):
 		mapValuesRDD = self.dataRDD.mapValues(func)
-		tempObj = SparkBasic(data=mapValuesRDD)
+		tempObj = SparkRDD(data=mapValuesRDD)
 		return tempObj
 
 	def max(self,func=None):
@@ -141,12 +141,12 @@ class SparkBasic():
 			maxRDD = self.dataRDD.max()
 		else:
 			maxRDD = self.dataRDD.max(func)
-		tempObj = SparkBasic(data=maxRDD)
+		tempObj = SparkRDD(data=maxRDD)
 		return tempObj
 
 	def mean(self):
 		meanRDD = self.dataRDD.mean()
-		tempObj = SparkBasic(data=meanRDD)
+		tempObj = SparkRDD(data=meanRDD)
 		return tempObj
 
 	def min(self,func=None):
@@ -154,7 +154,7 @@ class SparkBasic():
 			minRDD = self.dataRDD.min()
 		else:
 			minRDD = self.dataRDD.min(func)
-		tempObj = SparkBasic(data=minRDD)
+		tempObj = SparkRDD(data=minRDD)
 		return tempObj
 
 	def name(self):
@@ -165,7 +165,7 @@ class SparkBasic():
 			reduceByKeyRDD = self.dataRDD.reduceByKey()
 		else:
 			reduceByKeyRDD = self.dataRDD.reduceByKey(func)
-		tempObj = SparkBasic(data=reduceByKeyRDD)
+		tempObj = SparkRDD(data=reduceByKeyRDD)
 		return tempObj
 
 	def reduceByKeyLocally(self,func=None):
@@ -173,14 +173,14 @@ class SparkBasic():
 			reduceByKeyLocallyRDD = self.dataRDD.reduceByKeyLocally()
 		else:
 			reduceByKeyLocallyRDD = self.dataRDD.reduceByKeyLocally(func)
-		tempObj = SparkBasic(data=reduceByKeyLocallyRDD)
+		tempObj = SparkRDD(data=reduceByKeyLocallyRDD)
 		return tempObj
 
 
 	def rightOuterJoin(self,toBeJoined):
-		if isinstance(toBeJoined,SparkBasic):
+		if isinstance(toBeJoined,SparkRDD):
 			rightOuterJoinRDD = self.dataRDD.join(toBeJoined.dataRDD)
-			tempObj = SparkBasic(data=rightOuterJoinRDD)
+			tempObj = SparkRDD(data=rightOuterJoinRDD)
 		else:
 			#TODO: rasie err
 			pass
@@ -188,18 +188,18 @@ class SparkBasic():
 
 	def sortBy(self,func,ascending=True):
 		sortedBy = self.dataRDD.sortBy(func)
-		sortedObj = SparkBasic(data=sortedBy)
+		sortedObj = SparkRDD(data=sortedBy)
 		return sortedObj
 
 	def sortByKey(self,func,ascending=True):
 		sortedByKey = self.dataRDD.sortByKey(func)
-		sortedObj = SparkBasic(data=sortedByKey)
+		sortedObj = SparkRDD(data=sortedByKey)
 		return sortedObj
 
 	def substract(self,toBeSubtracted):
-		if isinstance(toBeJoined,SparkBasic):
+		if isinstance(toBeJoined,SparkRDD):
 			subtracted = self.dataRDD.subtract(toBeSubtracted.dataRDD)
-			subtractedObj = SparkBasic(data=subtracted)
+			subtractedObj = SparkRDD(data=subtracted)
 		else:
 			#TODO: raise err
 			pass
@@ -207,12 +207,12 @@ class SparkBasic():
 
 	def sum(self):
 		summed = self.dataRDD.sum()
-		sumObj = SparkBasic(data=summed)
+		sumObj = SparkRDD(data=summed)
 		return sumObj
 
 	def take(self,num):
 		took = self.dataRDD.take(num)
-		tookObj = SparkBasic(data=took)
+		tookObj = SparkRDD(data=took)
 		return tookObj
 
 	def takeOrdered(self,num,func=None):
@@ -220,25 +220,25 @@ class SparkBasic():
 			tookOredered = self.dataRDD.takeOrdered(num)
 		else:
 			tookOredered = self.dataRDD.takeOrdered(num,key=func)
-		tookObj = SparkBasic(data=tookOredered)
+		tookObj = SparkRDD(data=tookOredered)
 		return tookObj
 
 	def top(self,num,func):
 		if func is None:
 			topped = self.dataRDD.top(num)
 		else:
-			topped = sefl.dataRDD.top(num,key=func)
-		toppedObj = SparkBasic(data=topped)
+			topped = self.dataRDD.top(num,key=func)
+		toppedObj = SparkRDD(data=topped)
 		return toppedObj
 
 	def union(self):
 		unioned = self.dataRDD.union()
-		unionObj = SparkBasic(data=unioned)
+		unionObj = SparkRDD(data=unioned)
 		return unionObj
 
 	def values(self):
 		valued = self.dataRDD.values()
-		valueObj = SparkBasic(data=valued)
+		valueObj = SparkRDD(data=valued)
 		return valueObj
 
 	def variance(self):
@@ -246,22 +246,20 @@ class SparkBasic():
 
 
 	def zip(self,toBeZipped):
-		if isinstance(toBeZipped,SparkBasic):
+		if isinstance(toBeZipped,SparkRDD):
 			zipped = self.dataRDD.zip(toBeZipped)
 		else:
 			#TODO: Raise err
 			pass
-		zipObj = SparkBasic(data=zipped)
+		zipObj = SparkRDD(data=zipped)
 		return zipObj
 
 	def zipWithIndex(self):
 		zipped = self.dataRDD.zipWithIndex()
-		zipObj = SparkBasic(data=zipped)
+		zipObj = SparkRDD(data=zipped)
 		return zipObj
 
 	def zipWithUniqueId(self):
 		zipped = self.dataRDD.zipWithUniqueId()
-		zippedObj = SparkBasic(data = zipped)
+		zippedObj = SparkRDD(data = zipped)
 		return zipObj
-
-

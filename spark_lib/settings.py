@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'ml',
+    'libspark',
 )
 
 MIDDLEWARE_CLASSES = (
