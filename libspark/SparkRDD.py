@@ -51,6 +51,7 @@ class SparkRDD():
 	def cache(self):
 		self.dataRDD.cache()
 		self.is_cached = True
+		return self
 
 	def count(self):
 		return self.dataRDD.count()
