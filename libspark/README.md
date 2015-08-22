@@ -1,12 +1,12 @@
-Django Spark Lib
+Django Lib Spark
 ================
 
-This is the core Django Spark Lib. This library is built on top of [PySpark](https://spark.apache.org/docs/0.9.0/python-programming-guide.html) available for [Apache Spark](http://spark.apache.org/).
+This is the core Django Lib Spark. This library is built on top of [PySpark](https://spark.apache.org/docs/0.9.0/python-programming-guide.html) available for [Apache Spark](http://spark.apache.org/).
 
 What makes Spark Lib easy to use?
 =================================
 
-Spark Lib makes communication to a Spark instacnce a cake walk. Spark Lib takes care of all the connection related initialisation scripts. It also supports powerfull method chaining mechanism along with lazy evaluation.
+Lib Spark makes communication to a Spark instacnce a cake walk. Lib Spark takes care of all the connection related initialisation scripts. It also supports powerfull method chaining mechanism along with lazy evaluation.
 
 Packages
 ========
