@@ -33,7 +33,6 @@ class SparkRDD():
 			self.dataRDD = sc.parallelize (data)
 		except TypeError:
 			self.dataRDD = data
-		self.dataTF = None
 
 	def map(self,func):
 		mappedData = self.dataRDD.map(func)
@@ -50,6 +49,11 @@ class SparkRDD():
 
 	def count(self):
 		return self.dataRDD.count()
+
+	def distinct(self):
+		distinctRDD = self.dataRDD.distinct()
+		distinctObj = SparkRDD(data=distinctRDD)
+		return distinctObj
 
 	def first(self):
 		return self.dataRDD.first()
