@@ -171,7 +171,7 @@ class SparkRDD():
 		return self.dataRDD.name
 
 	def reduceByKey(self,func=None):
-		if key is None:
+		if func is None:
 			reduceByKeyRDD = self.dataRDD.reduceByKey()
 		else:
 			reduceByKeyRDD = self.dataRDD.reduceByKey(func)
@@ -230,16 +230,14 @@ class SparkRDD():
 			tookOredered = self.dataRDD.takeOrdered(num)
 		else:
 			tookOredered = self.dataRDD.takeOrdered(num,key=func)
-		tookObj = SparkRDD(data=tookOredered)
-		return tookObj
+		return tookOredered
 
 	def top(self,num,func):
 		if func is None:
 			topped = self.dataRDD.top(num)
 		else:
 			topped = self.dataRDD.top(num,key=func)
-		toppedObj = SparkRDD(data=topped)
-		return toppedObj
+		return topped
 
 	def union(self):
 		unioned = self.dataRDD.union()
