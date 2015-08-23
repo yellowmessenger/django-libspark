@@ -57,7 +57,8 @@ ROOT_URLCONF = 'dashboard.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(os.path.dirname(__file__),'templates'),
+                os.path.join(PROJECT_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -107,10 +108,10 @@ MEDIA_ROOT = '/media/'
 PROJECT_APP_DIR = os.path.realpath(os.path.dirname(__file__))
 PROJECT_DIR = os.path.dirname(PROJECT_APP_DIR)
 
-TEMPLATE_DIRS = (
-                    os.path.join(os.path.dirname(__file__),'templates'),
-                    os.path.join(PROJECT_DIR, 'templates'),
-)
+# TEMPLATE_DIRS = (
+#                     os.path.join(os.path.dirname(__file__),'templates'),
+#                     os.path.join(PROJECT_DIR, 'templates'),
+# )
 
 #Assets Folder
 STATICFILES_DIRS = (
