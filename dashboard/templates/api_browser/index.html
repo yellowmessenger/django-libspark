@@ -4,20 +4,83 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Title Page</title>
+		<title>API Browser</title>
 
 		<!-- Bootstrap CSS -->
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-
+		
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
 		<![endif]-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 	</head>
 	<body>
-		<h1 class="text-center">Hello World</h1>
+		<div class="container" ngApp>
+		{{1+2}}
+			<div class="row">
+				<div class="col-md-3">
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "map">map </label></div>
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "filter">filter </label></div>
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "flatMap">flatMap </label></div>
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "flatMapValues">flatMapValues </label></div>
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "groupBy">groupBy </label></div>
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "groupByKey">groupByKey </label></div>
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "intersection">intersection </label></div>
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "join">join </label></div>
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "keyBy">keyBy </label></div>
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "keys">keys </label></div>
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "leftOuterJoin">leftOuterJoin </label></div>
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "mapPartitions">mapPartitions </label></div>
+				<div class="checkbox"><label><input class = "methods" type="checkbox" value = "mapPartitionsWithIndex">mapPartitionsWithIndex </label></div>
+				
+				</div>
+				<div class="col-md-3">
+
+					<div class="checkbox"><label><input class = "methods" type="checkbox" value = "mapPartitionsWithSplit">mapPartitionsWithSplit </label></div>
+					<div class="checkbox"><label><input class = "methods" type="checkbox" value = "mapValues">mapValues </label></div>
+					<div class="checkbox"><label><input class = "methods" type="checkbox" value = "reduceByKey">reduceByKey </label></div>
+					<div class="checkbox"><label><input class = "methods" type="checkbox" value = "reduceByKeyLocally">reduceByKeyLocally </label></div>
+						<div class="checkbox"><label><input class = "methods" type="checkbox" value = "rightOuterJoin">rightOuterJoin </label></div>
+						<div class="checkbox"><label><input class = "methods" type="checkbox" value = "sortBy">sortBy </label></div>
+						<div class="checkbox"><label><input class = "methods" type="checkbox" value = "sortByKey">sortByKey </label></div>
+						<div class="checkbox"><label><input class = "methods" type="checkbox" value = "substract">substract </label></div>
+						<div class="checkbox"><label><input class = "methods" type="checkbox" value = "union">union </label></div>
+						<div class="checkbox"><label><input class = "methods" type="checkbox" value = "values">values </label></div>
+						<div class="checkbox"><label><input class = "methods" type="checkbox" value = "zip">zip </label></div>
+						<div class="checkbox"><label><input class = "methods" type="checkbox" value = "zipWithIndex">zipWithIndex </label></div>
+						<div class="checkbox"><label><input class = "methods" type="checkbox" value = "zipWithUniqueId">zipWithUniqueId </label></div>
+				</div>
+				<div class="col-md-3">
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "first">first </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "collect">collect </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "cache">cache </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "count">count </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "distinct">distinct </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "lookup">lookup </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "max">max </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "mean">mean </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "min">min </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "name">name </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "sum">sum </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "take">take </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "takeOrdered">takeOrdered </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "top">top </label></div>
+					<div class="radio"><label><input name="end_radio" class = "end_methods" type="radio" value = "variance">variance </label></div>
+
+				</div>
+				<div class="col-md-3">
+					2nd
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div>
+				3rd
+			</div>
+		</div>
 
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>

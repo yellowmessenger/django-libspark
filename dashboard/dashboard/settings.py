@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'corsheaders',
     'api_browser',
+    'libspark',
 )
 
 MIDDLEWARE_CLASSES = (
