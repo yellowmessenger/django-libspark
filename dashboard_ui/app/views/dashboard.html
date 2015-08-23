@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="col-md-3">
+	<legend>Generic Function</legend>
+		<div class="checkbox" ng-repeat="method in methodTypeOne"><label><input type="checkbox" ng-model="methodTypeOne[$index]['checked']" ng-change="checkMethodOne($index)">{{method.name}}</label></div>
+	</div>
+	<div class="col-md-2">
+	<legend>Lazy Evaluators</legend>
+		<div class="radio" ng-repeat="endMethod in endMethods"><label><input name = "end_method" type="radio" ng-model="$parent.endMethodChecked" ng-value="endMethod" ng-change="checkMethodOne()">{{endMethod.name}} </label></div>
+	</div>
+	<div class="col-md-3">
+		<legend>lambda inputs</legend>
+		<div class="form-group" ng-repeat="func in funcList"><input class="form-control" type="text" placeholder="{{func.name}}" ng-model="funcList[$index]['lambda']"></div>
+	</div>
+	<div class="col-md-4">
+		<legend>Dataset</legend>
+		<textarea ng-model = "data" class="form-control" rows="5"></textarea>
+		<br><br>
+		<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="SendData()">Create Spark Context and Run</button>
+		<legend>Output</legend>
+		Output from Spark Instance: <br>
+		{{output}}
+	</div>
+</div>
