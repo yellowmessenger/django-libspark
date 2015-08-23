@@ -15,6 +15,8 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+PROJECT_APP_DIR = os.path.realpath(os.path.dirname(__file__))
+PROJECT_DIR = os.path.dirname(PROJECT_APP_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -98,5 +100,24 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/media/'
+
+PROJECT_APP_DIR = os.path.realpath(os.path.dirname(__file__))
+PROJECT_DIR = os.path.dirname(PROJECT_APP_DIR)
+
+TEMPLATE_DIRS = (
+                    os.path.join(os.path.dirname(__file__),'templates'),
+                    os.path.join(PROJECT_DIR, 'templates'),
+)
+
+#Assets Folder
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_DIR,'static'),
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
